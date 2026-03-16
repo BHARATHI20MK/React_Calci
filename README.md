@@ -1,5 +1,5 @@
-# Ex04 Simple Calculator - React Project
-## Date:
+# MWAD-EXP_04-Simple-caluculator
+## Date: 28-10-25
 
 ## AIM
 To  develop a Simple Calculator using React.js with clean and responsive design, ensuring a smooth user experience across different screen sizes.
@@ -46,10 +46,65 @@ Deploy the website.
 Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
+## Calculator.jsx
+```
+import React, { useState } from "react";
 
+function Calculator() {
+  const [input, setInput] = useState("");
 
+  const handleClick = (value) => {
+    setInput(input + value);
+  };
+
+  const handleClear = () => {
+    setInput("");
+  };
+
+  const handleCalculate = () => {
+    try {
+      setInput(eval(input).toString());
+    } catch (error) {
+      setInput("Error");
+    }
+  };
+
+  return (
+    <div className="calculator">
+      <input type="text" value={input} readOnly className="display" />
+
+      <div className="buttons">
+        <button onClick={handleClear} className="clear">C</button>
+        <button onClick={() => handleClick("/")}>÷</button>
+        <button onClick={() => handleClick("*")}>×</button>
+        <button onClick={() => handleClick("-")}>−</button>
+
+        <button onClick={() => handleClick("7")}>7</button>
+        <button onClick={() => handleClick("8")}>8</button>
+        <button onClick={() => handleClick("9")}>9</button>
+        <button onClick={() => handleClick("+")}>+</button>
+
+        <button onClick={() => handleClick("4")}>4</button>
+        <button onClick={() => handleClick("5")}>5</button>
+        <button onClick={() => handleClick("6")}>6</button>
+        <button onClick={handleCalculate} className="equals">=</button>
+
+        <button onClick={() => handleClick("1")}>1</button>
+        <button onClick={() => handleClick("2")}>2</button>
+        <button onClick={() => handleClick("3")}>3</button>
+        <button onClick={() => handleClick("0")}>0</button>
+
+        <button onClick={() => handleClick(".")}>.</button>
+      </div>
+    </div>
+  );
+}
+
+export default Calculator;
+```
 ## OUTPUT
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/001e7d78-1a23-485d-ae1c-dd755c693e90" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9a2693c3-0e57-4974-8ae6-cdcd15e4c978" />
 
 ## RESULT
 The program for developing a simple calculator in React.js is executed successfully.
